@@ -1,0 +1,555 @@
+{
+  "test_rows": 22544,
+  "test_attack_rows": 12833,
+  "validation_calibration_normal_rows": 4040,
+  "validation_selection_rows": 7559,
+  "sha256": {
+    "data": "b8d748c1b79838a06b882d1be917cd77af1e38560c8b3984440966f1925b1769",
+    "pipeline": "911585bc158770c6ada32499f5078d278528745e65c33934b95c97f90b735439",
+    "autoencoder_model": "afb154a051ebb4e535fef288958b717ad7052669e026332b32e019fe3b7f86c9"
+  },
+  "protocol": "Same 77 features and official test; RF labeled train, IF/OCSVM full Normal train; AE frozen from optimization; calibration/selection rows shared; P97/P98/P99/P99.5/P99.9, maximize selection macro-F1 under FPR<=1%; fallback minimum FPR if no feasible candidate; Attack if score >= threshold.",
+  "versions": {
+    "sklearn": "1.9.1",
+    "numpy": "2.5.4",
+    "torch": "2.15.0+cpu"
+  },
+  "model_metadata": {
+    "Autoencoder": {
+      "training_policy": "normal-only",
+      "training_rows": 53874,
+      "threshold": 0.1089901358920893,
+      "selection_fpr_budget_met": true,
+      "parameters": {
+        "latent_dim": 16
+      }
+    },
+    "Random Forest": {
+      "kind": "Random Forest",
+      "threshold": 0.3661466666666638,
+      "feature_names": [
+        "numeric__duration",
+        "numeric__src_bytes",
+        "numeric__dst_bytes",
+        "numeric__land",
+        "numeric__wrong_fragment",
+        "numeric__urgent",
+        "numeric__hot",
+        "numeric__num_failed_logins",
+        "numeric__logged_in",
+        "numeric__num_compromised",
+        "numeric__root_shell",
+        "numeric__su_attempted",
+        "numeric__num_root",
+        "numeric__num_file_creations",
+        "numeric__num_shells",
+        "numeric__num_access_files",
+        "numeric__num_outbound_cmds",
+        "numeric__is_host_login",
+        "numeric__is_guest_login",
+        "numeric__count",
+        "numeric__srv_count",
+        "numeric__serror_rate",
+        "numeric__srv_serror_rate",
+        "numeric__rerror_rate",
+        "numeric__srv_rerror_rate",
+        "numeric__same_srv_rate",
+        "numeric__diff_srv_rate",
+        "numeric__srv_diff_host_rate",
+        "numeric__dst_host_count",
+        "numeric__dst_host_srv_count",
+        "numeric__dst_host_same_srv_rate",
+        "numeric__dst_host_diff_srv_rate",
+        "numeric__dst_host_same_src_port_rate",
+        "numeric__dst_host_srv_diff_host_rate",
+        "numeric__dst_host_serror_rate",
+        "numeric__dst_host_srv_serror_rate",
+        "numeric__dst_host_rerror_rate",
+        "numeric__dst_host_srv_rerror_rate",
+        "categorical__protocol_type_icmp",
+        "categorical__protocol_type_tcp",
+        "categorical__protocol_type_udp",
+        "categorical__service_IRC",
+        "categorical__service_X11",
+        "categorical__service_auth",
+        "categorical__service_domain",
+        "categorical__service_domain_u",
+        "categorical__service_eco_i",
+        "categorical__service_ecr_i",
+        "categorical__service_finger",
+        "categorical__service_ftp",
+        "categorical__service_ftp_data",
+        "categorical__service_http",
+        "categorical__service_imap4",
+        "categorical__service_ntp_u",
+        "categorical__service_other",
+        "categorical__service_pop_3",
+        "categorical__service_private",
+        "categorical__service_red_i",
+        "categorical__service_shell",
+        "categorical__service_smtp",
+        "categorical__service_ssh",
+        "categorical__service_telnet",
+        "categorical__service_tftp_u",
+        "categorical__service_tim_i",
+        "categorical__service_time",
+        "categorical__service_urh_i",
+        "categorical__service_urp_i",
+        "categorical__flag_OTH",
+        "categorical__flag_REJ",
+        "categorical__flag_RSTO",
+        "categorical__flag_RSTR",
+        "categorical__flag_S0",
+        "categorical__flag_S1",
+        "categorical__flag_S2",
+        "categorical__flag_S3",
+        "categorical__flag_SF",
+        "categorical__flag_SH"
+      ],
+      "training_rows": 100778,
+      "training_policy": "supervised",
+      "parameters": {
+        "bootstrap": true,
+        "ccp_alpha": 0.0,
+        "class_weight": "balanced",
+        "criterion": "gini",
+        "max_depth": null,
+        "max_features": "sqrt",
+        "max_leaf_nodes": null,
+        "max_samples": null,
+        "min_impurity_decrease": 0.0,
+        "min_samples_leaf": 1,
+        "min_samples_split": 2,
+        "min_weight_fraction_leaf": 0.0,
+        "monotonic_cst": null,
+        "n_estimators": 300,
+        "n_jobs": 4,
+        "oob_score": false,
+        "random_state": 42,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "selected_validation": {
+        "quantile": 0.999,
+        "threshold": 0.3661466666666638,
+        "macro_f1": 0.9990695823118618,
+        "false_positive_rate": 0.0014847809948032665
+      },
+      "selection_fpr_budget_met": true,
+      "train_seconds": 26.386557799996808,
+      "fit_status": 0,
+      "support_vectors": null
+    },
+    "Isolation Forest": {
+      "kind": "Isolation Forest",
+      "threshold": 0.5258073671521094,
+      "feature_names": [
+        "numeric__duration",
+        "numeric__src_bytes",
+        "numeric__dst_bytes",
+        "numeric__land",
+        "numeric__wrong_fragment",
+        "numeric__urgent",
+        "numeric__hot",
+        "numeric__num_failed_logins",
+        "numeric__logged_in",
+        "numeric__num_compromised",
+        "numeric__root_shell",
+        "numeric__su_attempted",
+        "numeric__num_root",
+        "numeric__num_file_creations",
+        "numeric__num_shells",
+        "numeric__num_access_files",
+        "numeric__num_outbound_cmds",
+        "numeric__is_host_login",
+        "numeric__is_guest_login",
+        "numeric__count",
+        "numeric__srv_count",
+        "numeric__serror_rate",
+        "numeric__srv_serror_rate",
+        "numeric__rerror_rate",
+        "numeric__srv_rerror_rate",
+        "numeric__same_srv_rate",
+        "numeric__diff_srv_rate",
+        "numeric__srv_diff_host_rate",
+        "numeric__dst_host_count",
+        "numeric__dst_host_srv_count",
+        "numeric__dst_host_same_srv_rate",
+        "numeric__dst_host_diff_srv_rate",
+        "numeric__dst_host_same_src_port_rate",
+        "numeric__dst_host_srv_diff_host_rate",
+        "numeric__dst_host_serror_rate",
+        "numeric__dst_host_srv_serror_rate",
+        "numeric__dst_host_rerror_rate",
+        "numeric__dst_host_srv_rerror_rate",
+        "categorical__protocol_type_icmp",
+        "categorical__protocol_type_tcp",
+        "categorical__protocol_type_udp",
+        "categorical__service_IRC",
+        "categorical__service_X11",
+        "categorical__service_auth",
+        "categorical__service_domain",
+        "categorical__service_domain_u",
+        "categorical__service_eco_i",
+        "categorical__service_ecr_i",
+        "categorical__service_finger",
+        "categorical__service_ftp",
+        "categorical__service_ftp_data",
+        "categorical__service_http",
+        "categorical__service_imap4",
+        "categorical__service_ntp_u",
+        "categorical__service_other",
+        "categorical__service_pop_3",
+        "categorical__service_private",
+        "categorical__service_red_i",
+        "categorical__service_shell",
+        "categorical__service_smtp",
+        "categorical__service_ssh",
+        "categorical__service_telnet",
+        "categorical__service_tftp_u",
+        "categorical__service_tim_i",
+        "categorical__service_time",
+        "categorical__service_urh_i",
+        "categorical__service_urp_i",
+        "categorical__flag_OTH",
+        "categorical__flag_REJ",
+        "categorical__flag_RSTO",
+        "categorical__flag_RSTR",
+        "categorical__flag_S0",
+        "categorical__flag_S1",
+        "categorical__flag_S2",
+        "categorical__flag_S3",
+        "categorical__flag_SF",
+        "categorical__flag_SH"
+      ],
+      "training_rows": 53874,
+      "training_policy": "normal-only",
+      "parameters": {
+        "bootstrap": false,
+        "contamination": "auto",
+        "max_features": 1.0,
+        "max_samples": 256,
+        "n_estimators": 300,
+        "n_jobs": 4,
+        "random_state": 42,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "selected_validation": {
+        "quantile": 0.99,
+        "threshold": 0.5258073671521094,
+        "macro_f1": 0.8948714990803651,
+        "false_positive_rate": 0.009651076466221232
+      },
+      "selection_fpr_budget_met": true,
+      "train_seconds": 1.844201100000646,
+      "fit_status": 0,
+      "support_vectors": null
+    },
+    "One-Class SVM": {
+      "kind": "One-Class SVM",
+      "threshold": 65.43420068256808,
+      "feature_names": [
+        "numeric__duration",
+        "numeric__src_bytes",
+        "numeric__dst_bytes",
+        "numeric__land",
+        "numeric__wrong_fragment",
+        "numeric__urgent",
+        "numeric__hot",
+        "numeric__num_failed_logins",
+        "numeric__logged_in",
+        "numeric__num_compromised",
+        "numeric__root_shell",
+        "numeric__su_attempted",
+        "numeric__num_root",
+        "numeric__num_file_creations",
+        "numeric__num_shells",
+        "numeric__num_access_files",
+        "numeric__num_outbound_cmds",
+        "numeric__is_host_login",
+        "numeric__is_guest_login",
+        "numeric__count",
+        "numeric__srv_count",
+        "numeric__serror_rate",
+        "numeric__srv_serror_rate",
+        "numeric__rerror_rate",
+        "numeric__srv_rerror_rate",
+        "numeric__same_srv_rate",
+        "numeric__diff_srv_rate",
+        "numeric__srv_diff_host_rate",
+        "numeric__dst_host_count",
+        "numeric__dst_host_srv_count",
+        "numeric__dst_host_same_srv_rate",
+        "numeric__dst_host_diff_srv_rate",
+        "numeric__dst_host_same_src_port_rate",
+        "numeric__dst_host_srv_diff_host_rate",
+        "numeric__dst_host_serror_rate",
+        "numeric__dst_host_srv_serror_rate",
+        "numeric__dst_host_rerror_rate",
+        "numeric__dst_host_srv_rerror_rate",
+        "categorical__protocol_type_icmp",
+        "categorical__protocol_type_tcp",
+        "categorical__protocol_type_udp",
+        "categorical__service_IRC",
+        "categorical__service_X11",
+        "categorical__service_auth",
+        "categorical__service_domain",
+        "categorical__service_domain_u",
+        "categorical__service_eco_i",
+        "categorical__service_ecr_i",
+        "categorical__service_finger",
+        "categorical__service_ftp",
+        "categorical__service_ftp_data",
+        "categorical__service_http",
+        "categorical__service_imap4",
+        "categorical__service_ntp_u",
+        "categorical__service_other",
+        "categorical__service_pop_3",
+        "categorical__service_private",
+        "categorical__service_red_i",
+        "categorical__service_shell",
+        "categorical__service_smtp",
+        "categorical__service_ssh",
+        "categorical__service_telnet",
+        "categorical__service_tftp_u",
+        "categorical__service_tim_i",
+        "categorical__service_time",
+        "categorical__service_urh_i",
+        "categorical__service_urp_i",
+        "categorical__flag_OTH",
+        "categorical__flag_REJ",
+        "categorical__flag_RSTO",
+        "categorical__flag_RSTR",
+        "categorical__flag_S0",
+        "categorical__flag_S1",
+        "categorical__flag_S2",
+        "categorical__flag_S3",
+        "categorical__flag_SF",
+        "categorical__flag_SH"
+      ],
+      "training_rows": 53874,
+      "training_policy": "normal-only",
+      "parameters": {
+        "cache_size": 1024,
+        "coef0": 0.0,
+        "degree": 3,
+        "gamma": "scale",
+        "kernel": "rbf",
+        "max_iter": -1,
+        "nu": 0.05,
+        "shrinking": true,
+        "tol": 0.001,
+        "verbose": false
+      },
+      "selected_validation": {
+        "quantile": 0.99,
+        "threshold": 65.43420068256808,
+        "macro_f1": 0.8716117643002748,
+        "false_positive_rate": 0.009651076466221232
+      },
+      "selection_fpr_budget_met": true,
+      "train_seconds": 40.996505599992815,
+      "fit_status": 0,
+      "support_vectors": 2729
+    }
+  },
+  "test_metrics": {
+    "Autoencoder": {
+      "threshold": 0.1089901358920893,
+      "confusion_matrix_labels": [
+        "Normal",
+        "Attack"
+      ],
+      "confusion_matrix": [
+        [
+          9564,
+          147
+        ],
+        [
+          5527,
+          7306
+        ]
+      ],
+      "precision_attack": 0.9802763987655978,
+      "recall_attack": 0.5693134886620431,
+      "f1_attack": 0.720299714088534,
+      "macro_f1": 0.7457639204262523,
+      "false_positive_rate": 0.01513747296879827,
+      "pr_auc_average_precision": 0.9662337930742748,
+      "roc_auc": 0.9645869982877642,
+      "groups": {
+        "DoS": {
+          "support": 7460,
+          "flagged_attack_rate": 0.6971849865951742
+        },
+        "Probe": {
+          "support": 2421,
+          "flagged_attack_rate": 0.6480793060718711
+        },
+        "R2L": {
+          "support": 2885,
+          "flagged_attack_rate": 0.17157712305025996
+        },
+        "U2R": {
+          "support": 67,
+          "flagged_attack_rate": 0.6119402985074627
+        },
+        "normal": {
+          "support": 9711,
+          "flagged_attack_rate": 0.01513747296879827
+        }
+      },
+      "accuracy": 0.7483144073811213,
+      "balanced_accuracy": 0.7770880078466225,
+      "inference_seconds": 0.045746100004180335
+    },
+    "Random Forest": {
+      "threshold": 0.3661466666666638,
+      "confusion_matrix_labels": [
+        "Normal",
+        "Attack"
+      ],
+      "confusion_matrix": [
+        [
+          9434,
+          277
+        ],
+        [
+          4072,
+          8761
+        ]
+      ],
+      "precision_attack": 0.9693516264660323,
+      "recall_attack": 0.6826930569625185,
+      "f1_attack": 0.8011522106899547,
+      "macro_f1": 0.8069162871083404,
+      "false_positive_rate": 0.028524353825558645,
+      "pr_auc_average_precision": 0.9639764228106866,
+      "roc_auc": 0.960354891444167,
+      "groups": {
+        "DoS": {
+          "support": 7460,
+          "flagged_attack_rate": 0.8546916890080429
+        },
+        "Probe": {
+          "support": 2421,
+          "flagged_attack_rate": 0.8727798430400661
+        },
+        "R2L": {
+          "support": 2885,
+          "flagged_attack_rate": 0.08942807625649914
+        },
+        "U2R": {
+          "support": 67,
+          "flagged_attack_rate": 0.208955223880597
+        },
+        "normal": {
+          "support": 9711,
+          "flagged_attack_rate": 0.028524353825558645
+        }
+      },
+      "accuracy": 0.8070883605393896,
+      "balanced_accuracy": 0.8270843515684799,
+      "inference_seconds": 0.3389219999953639
+    },
+    "Isolation Forest": {
+      "threshold": 0.5258073671521094,
+      "confusion_matrix_labels": [
+        "Normal",
+        "Attack"
+      ],
+      "confusion_matrix": [
+        [
+          9573,
+          138
+        ],
+        [
+          5667,
+          7166
+        ]
+      ],
+      "precision_attack": 0.981106243154436,
+      "recall_attack": 0.5584041143925816,
+      "f1_attack": 0.7117246859015742,
+      "macro_f1": 0.7395343400651313,
+      "false_positive_rate": 0.01421068890948409,
+      "pr_auc_average_precision": 0.9539261593820895,
+      "roc_auc": 0.9412055027880756,
+      "groups": {
+        "DoS": {
+          "support": 7460,
+          "flagged_attack_rate": 0.6962466487935657
+        },
+        "Probe": {
+          "support": 2421,
+          "flagged_attack_rate": 0.7942998760842627
+        },
+        "R2L": {
+          "support": 2885,
+          "flagged_attack_rate": 0.01386481802426343
+        },
+        "U2R": {
+          "support": 67,
+          "flagged_attack_rate": 0.13432835820895522
+        },
+        "normal": {
+          "support": 9711,
+          "flagged_attack_rate": 0.01421068890948409
+        }
+      },
+      "accuracy": 0.7425035486160397,
+      "balanced_accuracy": 0.7720967127415488,
+      "inference_seconds": 0.5413072999945143
+    },
+    "One-Class SVM": {
+      "threshold": 65.43420068256808,
+      "confusion_matrix_labels": [
+        "Normal",
+        "Attack"
+      ],
+      "confusion_matrix": [
+        [
+          9643,
+          68
+        ],
+        [
+          6615,
+          6218
+        ]
+      ],
+      "precision_attack": 0.9891823098950048,
+      "recall_attack": 0.484532065767942,
+      "f1_attack": 0.6504524295203724,
+      "macro_f1": 0.6965535666027678,
+      "false_positive_rate": 0.007002368448151581,
+      "pr_auc_average_precision": 0.9295931850549628,
+      "roc_auc": 0.8942766091208689,
+      "groups": {
+        "DoS": {
+          "support": 7460,
+          "flagged_attack_rate": 0.5863270777479893
+        },
+        "Probe": {
+          "support": 2421,
+          "flagged_attack_rate": 0.5225113589425857
+        },
+        "R2L": {
+          "support": 2885,
+          "flagged_attack_rate": 0.18648180242634316
+        },
+        "U2R": {
+          "support": 67,
+          "flagged_attack_rate": 0.6119402985074627
+        },
+        "normal": {
+          "support": 9711,
+          "flagged_attack_rate": 0.007002368448151581
+        }
+      },
+      "accuracy": 0.7035574875798438,
+      "balanced_accuracy": 0.7387648486598952,
+      "inference_seconds": 11.067371900004218
+    }
+  }
+}

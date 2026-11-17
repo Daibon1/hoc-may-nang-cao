@@ -1,0 +1,130 @@
+{
+  "protocol": {
+    "epochs": 100,
+    "patience": 12,
+    "seed": 42
+  },
+  "trials": [
+    {
+      "best_epoch": 83,
+      "epochs_run": 95,
+      "train_mse": 0.01465671217971783,
+      "early_stopping_mse": 0.016018170534317075,
+      "training_seconds": 143.97160240000812,
+      "latent_dim": 8,
+      "validation_selection_ap": 0.9729139506433829,
+      "generalization_gap": 0.0013614583545992452,
+      "stop_train_ratio": 1.0928897516649916
+    },
+    {
+      "best_epoch": 83,
+      "epochs_run": 95,
+      "train_mse": 0.01337984012524002,
+      "early_stopping_mse": 0.010880057207744645,
+      "training_seconds": 117.95443009999872,
+      "latent_dim": 16,
+      "validation_selection_ap": 0.9788259068950907,
+      "generalization_gap": -0.0024997829174953756,
+      "stop_train_ratio": 0.8131679531222701
+    },
+    {
+      "best_epoch": 99,
+      "epochs_run": 100,
+      "train_mse": 0.007908272080953517,
+      "early_stopping_mse": 0.008519801844194857,
+      "training_seconds": 124.44698390000849,
+      "latent_dim": 32,
+      "validation_selection_ap": 0.9780952366715269,
+      "generalization_gap": 0.0006115297632413395,
+      "stop_train_ratio": 1.0773278608754704
+    }
+  ],
+  "selected_latent_dim": 16,
+  "model_selection": "maximum AP on validation selection; smaller latent breaks ties",
+  "threshold_selection": "maximum macro-F1 on validation selection with FPR <= 1%, quantile > P95; fallback minimum FPR",
+  "selection_fpr_budget_met": true,
+  "selected_threshold": {
+    "quantile": 0.99,
+    "threshold": 0.1089901358920893,
+    "precision_attack": 0.9861495844875346,
+    "recall_attack": 0.8095508811824901,
+    "macro_f1": 0.9038348102258357,
+    "false_positive_rate": 0.00989853996535511
+  },
+  "risk": {
+    "score": "100 * empirical CDF of normal calibration errors (right-inclusive)",
+    "medium_threshold": 0.02376215732778826,
+    "high_threshold": 0.1089901358920893,
+    "medium_quantile": 0.95,
+    "high_quantile": 0.99,
+    "alert_rule": "Low: error < medium; Medium: medium <= error < high; High: error >= high",
+    "binary_rule": "High = Attack; Low/Medium = Normal",
+    "not_probability": true
+  },
+  "test": {
+    "threshold": 0.1089901358920893,
+    "confusion_matrix_labels": [
+      "Normal",
+      "Attack"
+    ],
+    "confusion_matrix": [
+      [
+        9564,
+        147
+      ],
+      [
+        5527,
+        7306
+      ]
+    ],
+    "precision_attack": 0.9802763987655978,
+    "recall_attack": 0.5693134886620431,
+    "f1_attack": 0.720299714088534,
+    "macro_f1": 0.7457639204262523,
+    "false_positive_rate": 0.01513747296879827,
+    "pr_auc_average_precision": 0.9662337930742748,
+    "roc_auc": 0.9645869982877642,
+    "groups": {
+      "DoS": {
+        "support": 7460,
+        "flagged_attack_rate": 0.6971849865951742
+      },
+      "Probe": {
+        "support": 2421,
+        "flagged_attack_rate": 0.6480793060718711
+      },
+      "R2L": {
+        "support": 2885,
+        "flagged_attack_rate": 0.17157712305025996
+      },
+      "U2R": {
+        "support": 67,
+        "flagged_attack_rate": 0.6119402985074627
+      },
+      "normal": {
+        "support": 9711,
+        "flagged_attack_rate": 0.01513747296879827
+      }
+    }
+  },
+  "counts": {
+    "normal_train": 53874,
+    "normal_stopping": 5388,
+    "normal_calibration": 4040,
+    "selection": 7559
+  },
+  "sha256": {
+    "data": "b8d748c1b79838a06b882d1be917cd77af1e38560c8b3984440966f1925b1769",
+    "pipeline": "911585bc158770c6ada32499f5078d278528745e65c33934b95c97f90b735439"
+  },
+  "versions": {
+    "torch": "2.15.0+cpu",
+    "numpy": "2.5.4"
+  },
+  "limitations": [
+    "Single seed: exploratory comparison, not a multi-seed confidence estimate.",
+    "Validation selection metrics are optimistic after model/threshold selection.",
+    "NSL-KDD test was already inspected in the previous stage; no test metrics used in this search.",
+    "Score is a normal-reference percentile, not attack probability or damage severity."
+  ]
+}

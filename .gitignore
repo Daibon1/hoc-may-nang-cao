@@ -1,0 +1,23 @@
+# Local Python environments
+.venv/
+venv/
+env/
+
+# Python-generated files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local IDE files
+.vscode/
+.idea/
+
+# Derived datasets and trained artifacts
+data/processed/
+artifacts/
+
+# Per-run experiment output; keep curated reports and data profiles
+reports/experiments/

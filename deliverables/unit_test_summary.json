@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "tests_run": 21,
+  "failures": 0,
+  "errors": 0,
+  "elapsed_seconds": 12.375,
+  "command": ".venv/Scripts/python.exe -m unittest discover -s tests -p 'test_*.py' -v",
+  "scope": "Autoencoder, risk scoring, baseline score orientation/thresholds, raw CSV schema, saved-model scoring, data profiling and Streamlit AppTest demo flow.",
+  "note": "Observed test-run summary; no claim of line or branch coverage. Integration replay is recorded separately in pipeline_audit.json."
+}

@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "powerpoint_slides": 15,
+  "speaker_notes_on_all_slides": true,
+  "all_shapes_within_slide_bounds": true,
+  "docx_tables": 2,
+  "docx_embedded_figures": 4,
+  "generated_figure_files": 5,
+  "office_files_reopened_with_python_libraries": true,
+  "archive_integrity": "ZIP CRC and SHA-256 of every manifest entry verified during build",
+  "visual_validation": "Generated group-recall figure inspected; Office files structurally checked, not rendered through Microsoft Office or LibreOffice."
+}

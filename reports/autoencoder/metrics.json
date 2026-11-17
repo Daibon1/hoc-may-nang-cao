@@ -1,0 +1,139 @@
+{
+  "architecture": [
+    77,
+    64,
+    32,
+    16,
+    32,
+    64,
+    77
+  ],
+  "activation": "ReLU hidden layers; linear bottleneck and output",
+  "config": {
+    "epochs": 100,
+    "patience": 12,
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "seed": 42,
+    "quantile": 0.99
+  },
+  "device": "cpu",
+  "best_epoch": 51,
+  "epochs_run": 63,
+  "training_seconds": 254.4011262999993,
+  "normal_training_rows": 53874,
+  "early_stopping_rows": 6734,
+  "normal_calibration_rows": 6735,
+  "initial_train_mse": 0.515497575812457,
+  "best_train_mse": 0.016282246455196426,
+  "best_early_stopping_mse": 0.020256195816237704,
+  "threshold_policy": "P99 by default, normal calibration subset of validation only; Attack if MSE >= threshold",
+  "threshold": 0.17633297775314696,
+  "calibration_false_positive_rate": 0.010096510764662212,
+  "validation_note": "Validation includes rows used for early stopping and calibration; test is independent.",
+  "versions": {
+    "python": "3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]",
+    "torch": "2.15.0+cpu",
+    "numpy": "2.5.4",
+    "sklearn": "1.9.1"
+  },
+  "sha256": {
+    "data_npz": "b8d748c1b79838a06b882d1be917cd77af1e38560c8b3984440966f1925b1769",
+    "pipeline": "911585bc158770c6ada32499f5078d278528745e65c33934b95c97f90b735439",
+    "model": "588bd640e94ee2d51b7d551527b16b5d2c7deb67af29c90130ef3e2c43e3d25a"
+  },
+  "evaluation": {
+    "validation": {
+      "threshold": 0.17633297775314696,
+      "confusion_matrix_labels": [
+        "Normal",
+        "Attack"
+      ],
+      "confusion_matrix": [
+        [
+          13340,
+          129
+        ],
+        [
+          2629,
+          9097
+        ]
+      ],
+      "precision_attack": 0.9860177758508563,
+      "recall_attack": 0.775797373358349,
+      "f1_attack": 0.8683657884688812,
+      "macro_f1": 0.8873386792741852,
+      "false_positive_rate": 0.009577548444576435,
+      "pr_auc_average_precision": 0.9752321914713387,
+      "roc_auc": 0.9864868059765466,
+      "groups": {
+        "DoS": {
+          "support": 9105,
+          "flagged_attack_rate": 0.8971993410214169
+        },
+        "Probe": {
+          "support": 2389,
+          "flagged_attack_rate": 0.3675177898702386
+        },
+        "R2L": {
+          "support": 226,
+          "flagged_attack_rate": 0.20353982300884957
+        },
+        "U2R": {
+          "support": 6,
+          "flagged_attack_rate": 0.6666666666666666
+        },
+        "normal": {
+          "support": 13469,
+          "flagged_attack_rate": 0.009577548444576435
+        }
+      }
+    },
+    "test": {
+      "threshold": 0.17633297775314696,
+      "confusion_matrix_labels": [
+        "Normal",
+        "Attack"
+      ],
+      "confusion_matrix": [
+        [
+          9622,
+          89
+        ],
+        [
+          6348,
+          6485
+        ]
+      ],
+      "precision_attack": 0.9864618192881046,
+      "recall_attack": 0.5053378009818437,
+      "f1_attack": 0.6683155562425929,
+      "macro_f1": 0.7088316615370513,
+      "false_positive_rate": 0.009164864586551334,
+      "pr_auc_average_precision": 0.9657292250294437,
+      "roc_auc": 0.9630407412898713,
+      "groups": {
+        "DoS": {
+          "support": 7460,
+          "flagged_attack_rate": 0.6694369973190348
+        },
+        "Probe": {
+          "support": 2421,
+          "flagged_attack_rate": 0.4774886410574143
+        },
+        "R2L": {
+          "support": 2885,
+          "flagged_attack_rate": 0.10190641247833622
+        },
+        "U2R": {
+          "support": 67,
+          "flagged_attack_rate": 0.6119402985074627
+        },
+        "normal": {
+          "support": 9711,
+          "flagged_attack_rate": 0.009164864586551334
+        }
+      }
+    }
+  }
+}

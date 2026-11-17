@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "checks": [
+    "Pinned raw file hashes verified",
+    "Re-fit preprocessing on Normal train; all train/validation/test matrices and labels match",
+    "Validation roles disjoint and contained in validation split",
+    "Full raw CSV -> schema -> saved AE -> error -> risk -> alert -> exported CSV matches 22544 rows",
+    "41-column reordered UTF-8 BOM upload matches full raw inference",
+    "Saved random_forest: full test inference reproduced",
+    "Saved isolation_forest: full test inference reproduced",
+    "Saved one_class_svm: full test inference reproduced",
+    "All four comparison tables independently recomputed against raw test labels",
+    "EDA notebook valid, all code cells have saved executions without errors"
+  ],
+  "seconds": 25.330479700001888,
+  "test_rows": 22544,
+  "unknown_test_categories": {
+    "protocol_type": 0,
+    "service": 1343,
+    "flag": 2
+  },
+  "scope": "Replay preprocessing from raw and reproduce all saved estimators; no retraining or retuning.",
+  "data_sha256": "b8d748c1b79838a06b882d1be917cd77af1e38560c8b3984440966f1925b1769"
+}
